@@ -97,17 +97,19 @@ def productToevoegen():
 
     # maak de lijst aan met variable.
     producten.append({'naam': naam, 'prijs': prijs, 'aantal': aantal, 'verkocht': 0})
-    permanentInput = input("Wil je dit product voor altijd toevoegen? ja/nee (Dan onthoudt die het product ook na een reboot?)").lower()
+
+    # UNDER CONSTRUCTION
+    #permanentInput = input("Wil je dit product voor altijd toevoegen? ja/nee (Dan onthoudt die het product ook na een reboot?)").lower()
 
 
-    if permanentInput == 'ja':
-        with open("producten.json", 'w') as outfile:
-            json.dump(producten, outfile, indent=4, separators=(',', ':'))
-        print(f'Toevoegen is gelukt en hij zal het onthouden.\n')
-    elif permanentInput == 'nee':
-        print('Oke, alleen onthouden voor deze sessie.')
-    else:
-        print("Instructie niet duidelijk. Alleen voor deze sessie onthouden.")
+    #if permanentInput == 'ja':
+    with open("producten.json", 'w') as outfile:
+        json.dump(producten, outfile, indent=4, separators=(',', ':'))
+        print(f'Toevoegen is gelukt en hij zal het permanent onthouden.\n')
+    #elif permanentInput == 'nee':
+    #    print('Oke, alleen onthouden voor deze sessie.')
+    #else:
+    #    print("Instructie niet duidelijk. Alleen voor deze sessie onthouden.")
 
 
 print("Eerste boot...")
