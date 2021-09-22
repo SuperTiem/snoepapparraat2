@@ -28,11 +28,5 @@
         "prijs":150.0,
         "aantal":1.0,
         "verkocht":0
-    },
-    {
-        "naam":"sok",
-        "prijs":5.0,
-        "aantal":0.0,
-        "verkocht":2
     }
 ]
