@@ -22,11 +22,5 @@
         "prijs":2.0,
         "aantal":26.0,
         "verkocht":1
-    },
-    {
-        "naam":"fiets",
-        "prijs":150.0,
-        "aantal":1.0,
-        "verkocht":0
     }
 ]
