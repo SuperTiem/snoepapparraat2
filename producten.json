@@ -1,0 +1,26 @@
+[
+    {
+        "naam":"mars",
+        "prijs":1.0,
+        "aantal":9,
+        "verkocht":1
+    },
+    {
+        "naam":"snicker",
+        "prijs":1.2,
+        "aantal":8,
+        "verkocht":0
+    },
+    {
+        "naam":"kitkat",
+        "prijs":0.9,
+        "aantal":10,
+        "verkocht":0
+    },
+    {
+        "naam":"appel",
+        "prijs":2.0,
+        "aantal":26.0,
+        "verkocht":1
+    }
+]
