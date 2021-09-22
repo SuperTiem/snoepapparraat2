@@ -27,13 +27,11 @@ for item in json_array:
 
 
 def apparaatBijvullen():
-    while True:
-        try:
-
-        except ValueError
     print("Welk product wil je bijvullen.")
     for product in producten:
-        print(product["naam"][0].upper() + product["naam"][1:])
+        print(product["naam"][0].upper() + product["naam"][1:] + ' Aantal: '+ product["aantal"])
+
+    # kijken of product bestaat.
     productInput = input("Welk product wil je bijvullen? ").lower()
     for product in producten:
         if product["naam"] == productInput:
@@ -41,6 +39,8 @@ def apparaatBijvullen():
             bijvulInput = int(input("Hoeveel wilt u bijvullen? Moet een int zijn dus geen punt getal."))
             product["aantal"] = product["aantal"] + bijvulInput
             print(f"Het bijvullen is gelukt!\n")
+        elif product["naam"] != productInput and product["naam"] == producten["naam"][-1]:
+            print("Dit product is niet gevonden...")
 
 
 
@@ -65,7 +65,21 @@ def productToevoegen():
     apparaatUitlezen()
 
     print(f"\nproduct toevoegen")
-    naam = input("Wat is de naam van het product dat je wil toevoegen? ").lower()
+
+    # check of product bestaat
+    while True:
+        try:
+            naam = input("Wat is de naam van het product dat je wil toevoegen? ").lower()
+            # check of product al bestaat.
+            for product in producten:
+                if product["naam"] == naam:
+                    print("Dit product bestaat al en kan niet worden toegevoegd.")
+                    magDoorgaan = False
+            if magDoorgaan == True:
+                break
+        except ValueError:
+            print("Niet een goede naam. Je hebt een getal ingevuld.")
+
     while True:
         try:
             prijs = float(input("Hoe duur is het product? (in punt getal dus float) "))
