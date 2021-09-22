@@ -203,7 +203,7 @@ def ontvangProduct(gekozenProduct):
     with open("producten.json", 'w') as outfile:
         json.dump(producten, outfile, indent=4, separators=(',', ':'))
     # \n voor extra enter.
-    print(f"\nvolgende klant!")
+    print(f"volgende klant!\n")
 
 
 # altijd in een loop zodat het blijft draaien.
