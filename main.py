@@ -1,5 +1,6 @@
 import json
 
+# Dit alleen gebruiken om Json aan te maken.
 #productenvar = [
 #    {"naam": "mars", "prijs": 1.00, "aantal": 10, "verkocht": 0},
 #    {"naam": "snicker", "prijs": 1.20, "aantal": 8, "verkocht": 0},
@@ -72,6 +73,7 @@ def productToevoegen():
             naam = input("Wat is de naam van het product dat je wil toevoegen? ").lower()
             # check of product al bestaat.
             for product in producten:
+                magDoorgaan = True
                 if product["naam"] == naam:
                     print("Dit product bestaat al en kan niet worden toegevoegd.")
                     magDoorgaan = False
@@ -95,7 +97,7 @@ def productToevoegen():
 
     # maak de lijst aan met variable.
     producten.append({'naam': naam, 'prijs': prijs, 'aantal': aantal, 'verkocht': 0})
-    permanentInput = input("Wil je dit product voor altijd toevoegen? ja/nee (Dan onthoudt die het product ook na een reboot?)")
+    permanentInput = input("Wil je dit product voor altijd toevoegen? ja/nee (Dan onthoudt die het product ook na een reboot?)").lower()
 
 
     if permanentInput == 'ja':
@@ -104,6 +106,8 @@ def productToevoegen():
         print(f'Toevoegen is gelukt en hij zal het onthouden.\n')
     elif permanentInput == 'nee':
         print('Oke, alleen onthouden voor deze sessie.')
+    else:
+        print("Instructie niet duidelijk. Alleen voor deze sessie onthouden.")
 
 
 print("Eerste boot...")
@@ -120,6 +124,11 @@ if bootUp == 1:
         nogEenProduct = input("Wil je nog een product toevoegen? (ja/nee) ").lower()
         if nogEenProduct == "nee":
             break
+        # typfout opvangen en feedback geven aan user.
+        elif nogEenProduct != "ja":
+            print("Instructie onduidelijk, ik zal stoppen met toevoegen.")
+            break
+
 elif bootUp == 3:
     print(f"uitlezen...\n")
     apparaatUitlezen()
@@ -129,6 +138,7 @@ elif bootUp == 4:
     apparaatBijvullen()
 
 else:
+    # gaat dan door naar de onderste loop.
     print(f"normaal opstarten\n")
 
 
