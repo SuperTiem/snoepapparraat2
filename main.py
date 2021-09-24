@@ -26,7 +26,7 @@ for item in json_array:
     producten.append(slaDetailsOp)
 
 
-
+# Met deze functie kan je het apparaat bijvullen. Deze optie krijg je alleen bij de eerste boot.
 def apparaatBijvullen():
     print("Welk product wil je bijvullen.")
     for product in producten:
@@ -60,13 +60,13 @@ def apparaatUitlezen():
         totaalVerdient = totaalVerdient + verdient
     print("In totaal verdient: $" + str(f"{totaalVerdient:.2f}") + f"\n" )
 
-
+# met deze functie voeg je een product toe. Dus ook aan de json.
 def productToevoegen():
     print(f"\nDeze producten met waardes zitten er al in: ")
     apparaatUitlezen()
 
     print(f"\nproduct toevoegen")
-
+    # Al deze while loops zijn er om fouten op te vangen.
     # check of product bestaat
     while True:
         try:
@@ -111,7 +111,7 @@ def productToevoegen():
     #else:
     #    print("Instructie niet duidelijk. Alleen voor deze sessie onthouden.")
 
-
+# Eerste boot dus niet in functie
 print("Eerste boot...")
 print("1: product toevoegen")
 print("2: normaal opstarten")
@@ -119,7 +119,7 @@ print("3: apparaat uitlezen (dit kan je ook tijdens dat het apparaat draait doen
 print("4: apparaat bijvullen")
 bootUp = int(input("Wil je een product toevoegen of de machine normaal opstarten? "))
 
-
+# check naar input. Als die niet begrijpt start die normaal op.
 if bootUp == 1:
     while True:
         productToevoegen()
@@ -170,7 +170,8 @@ def betalingen(productPrijs, product):
         print("teveel geld gegeven. Je krijgt $" + str(F"{geldTerug:.2f}") + " terug")
         ontvangProduct(product)
 
-
+# Bij normale boot eerste wat die gaat doen door de while loop onderaan.
+# Hier vraag die het product en checkt of die op voorraad is.
 def vraagProduct():
     print("Welkom bij dit snoepautomaat, je kunt kiezen uit de volgende producten:")
     for product in producten:
@@ -197,7 +198,7 @@ def vraagProduct():
                 print("Het product: " + productInput + " Bestaat niet of is verkeerd getypt. Probeer het opnieuw " + f"\n")
                 break
 
-
+# Dit is de functie waarmee de klant het product ontvangt en de rest van de variable wordt aangepast. Hier en bij de json.
 def ontvangProduct(gekozenProduct):
     print("Hier is uw product: " + gekozenProduct['naam'][0].upper() + gekozenProduct['naam'][1:])
     gekozenProduct['aantal'] = gekozenProduct['aantal'] -1
