@@ -2,8 +2,8 @@
     {
         "naam":"mars",
         "prijs":1.0,
-        "aantal":8,
-        "verkocht":2
+        "aantal":7,
+        "verkocht":3
     },
     {
         "naam":"snicker",
@@ -21,6 +21,12 @@
         "naam":"appel",
         "prijs":2.0,
         "aantal":26.0,
+        "verkocht":1
+    },
+    {
+        "naam":"testje",
+        "prijs":1.5,
+        "aantal":9.0,
         "verkocht":1
     }
 ]

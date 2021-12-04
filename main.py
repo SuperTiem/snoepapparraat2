@@ -174,29 +174,22 @@ def betalingen(productPrijs, product):
 # Hier vraag die het product en checkt of die op voorraad is.
 def vraagProduct():
     print("Welkom bij dit snoepautomaat, je kunt kiezen uit de volgende producten:")
+    nummer = 0
     for product in producten:
-        print(product["naam"][0].upper() + product["naam"][1:])
-    productInput = input("Welk product wil je kopen? ").lower()
-    for product in producten:
-        if product["naam"] == productInput:
+        nummer = nummer + 1
+        print(str(nummer) + ") " + product["naam"][0].upper() + product["naam"][1:])
+    productInput = int(input("Welk product wil je kopen? "))
+    gekozenproduct = producten[productInput - 1]
             # checkt op voorraad
-            if product["aantal"] > 0:
-                print("We hebben "+ product["naam"][0].upper() + product["naam"][1:] + " op voorraad en de prijs is: $" + str(f"{product['prijs']:.2f}"))
-                # Gaat door naar funcite betaling
-                betalingen(product['prijs'], product)
-                break
-            else:
-                print("We hebben het product "+ product['naam'][0].upper() + product['naam'][1:] + f" helaas niet op voorraad\n")
-                break
+    if gekozenproduct["aantal"] > 0:
+        print("We hebben "+ gekozenproduct["naam"][0].upper() + gekozenproduct["naam"][1:] + " op voorraad en de prijs is: $" + str(f"{gekozenproduct['prijs']:.2f}"))
+    # Gaat door naar funcite betaling
+        betalingen(gekozenproduct['prijs'], gekozenproduct)
 
-        # Checkt of de naam er niet in zit en of die op het laatste woordt van de lijst is. Zodat die eerst alles controleert en niet na de eerste stopt.
-        elif product['naam'] != productInput and product == producten[-1]:
-            # uitzondering voor uitlezen.
-            if productInput == "uitlezen":
-                apparaatUitlezen()
-            else:
-                print("Het product: " + productInput + " Bestaat niet of is verkeerd getypt. Probeer het opnieuw " + f"\n")
-                break
+    else:
+        print("We hebben het product "+ gekozenproduct['naam'][0].upper() + gekozenproduct['naam'][1:] + f" helaas niet op voorraad\n")
+
+
 
 # Dit is de functie waarmee de klant het product ontvangt en de rest van de variable wordt aangepast. Hier en bij de json.
 def ontvangProduct(gekozenProduct):
