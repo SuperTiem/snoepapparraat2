@@ -1,29 +1,29 @@
 import json
 
 # Dit alleen gebruiken om Json aan te maken.
-#productenvar = [
-#    {"naam": "mars", "prijs": 1.00, "aantal": 10, "verkocht": 0},
-#    {"naam": "snicker", "prijs": 1.20, "aantal": 8, "verkocht": 0},
-#    {"naam": "kitkat", "prijs": 0.9, "aantal": 0, "verkocht": 0},
-#]
+producten = [
+    {"naam": "mars", "prijs": 1.00, "aantal": 10, "verkocht": 0},
+    {"naam": "snicker", "prijs": 1.20, "aantal": 8, "verkocht": 0},
+    {"naam": "kitkat", "prijs": 0.9, "aantal": 0, "verkocht": 0},
+]
 
 
 # bestand openen
-jsonBestand = open ("producten.json")
-json_array = json.load(jsonBestand)
+#jsonBestand = open ("producten.json")
+#json_array = json.load(jsonBestand)
 
 # lege lijst aanmaken.
-producten = []
+#producten = []
 
 # importeer json naar de multi array
-for item in json_array:
-    slaDetailsOp = {"naam":None, "prijs":None, "aantal":None, "verkocht":None}
-    slaDetailsOp["naam"] = item["naam"]
-    slaDetailsOp["prijs"] = item["prijs"]
-    slaDetailsOp["aantal"] = item["aantal"]
-    slaDetailsOp["verkocht"] = item["verkocht"]
+#for item in json_array:
+#    slaDetailsOp = {"naam":None, "prijs":None, "aantal":None, "verkocht":None}
+#    slaDetailsOp["naam"] = item["naam"]
+#    slaDetailsOp["prijs"] = item["prijs"]
+#    slaDetailsOp["aantal"] = item["aantal"]
+#    slaDetailsOp["verkocht"] = item["verkocht"]
 
-    producten.append(slaDetailsOp)
+ #   producten.append(slaDetailsOp)
 
 
 # Met deze functie kan je het apparaat bijvullen. Deze optie krijg je alleen bij de eerste boot.
@@ -103,9 +103,9 @@ def productToevoegen():
 
 
     #if permanentInput == 'ja':
-    with open("producten.json", 'w') as outfile:
-        json.dump(producten, outfile, indent=4, separators=(',', ':'))
-        print(f'Toevoegen is gelukt en hij zal het permanent onthouden.\n')
+    #with open("producten.json", 'w') as outfile:
+    #    json.dump(producten, outfile, indent=4, separators=(',', ':'))
+    print(f'Toevoegen is gelukt en hij zal het tijdelijk onthouden.\n')
     #elif permanentInput == 'nee':
     #    print('Oke, alleen onthouden voor deze sessie.')
     #else:
@@ -196,8 +196,8 @@ def ontvangProduct(gekozenProduct):
     print("Hier is uw product: " + gekozenProduct['naam'][0].upper() + gekozenProduct['naam'][1:])
     gekozenProduct['aantal'] = gekozenProduct['aantal'] -1
     gekozenProduct['verkocht'] = gekozenProduct['verkocht'] + 1
-    with open("producten.json", 'w') as outfile:
-        json.dump(producten, outfile, indent=4, separators=(',', ':'))
+    #with open("producten.json", 'w') as outfile:
+    #   json.dump(producten, outfile, indent=4, separators=(',', ':'))
     # \n voor extra enter.
     print(f"volgende klant!\n")
 
